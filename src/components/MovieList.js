@@ -1,5 +1,6 @@
 import React from 'react'
-import MovieCard from './MovieCard'
+import MovieCard from './MovieCard';
+import WithLoader from './loader'
 
 const MovieList = (props) => {
     return (
@@ -14,4 +15,4 @@ const MovieList = (props) => {
     );
 }
 
-export default MovieList
+export default WithLoader(MovieList)

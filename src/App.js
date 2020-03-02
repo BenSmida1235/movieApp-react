@@ -9,11 +9,16 @@ class App extends Component {
   state = {
     minRating: 1,
     nameFilter: "",
-    Data: Data
+    Data: Data,
+    loading: false
   };
   searchMovie = x => {
+    setTimeout(() => {
+      this.setState({ loading:false})
+    }, 1000);
     this.setState({
-      nameFilter: x
+      nameFilter: x,
+      loading: true
     });
   };
 
@@ -23,8 +28,12 @@ class App extends Component {
     });
   };
   searchByRating = x => {
+       setTimeout(() => {
+         this.setState({ loading: false });
+       }, 1000);
     this.setState({
-      minRating: x
+      minRating: x,
+      loading: true
     });
   };
 
@@ -39,6 +48,7 @@ class App extends Component {
           Data={this.state.Data}
           nameFilter={this.state.nameFilter}
           minRating={this.state.minRating}
+          loading={this.state.loading}
         />
         <Add AddMovie={this.AddMovie} />
       </div>
